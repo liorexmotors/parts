@@ -58,12 +58,23 @@ document.addEventListener('DOMContentLoaded', () => {
             
             chat.appendChild(confirmBtn);
             messageBox.value = '';
+            updateRequestHistory();
         }
     }
 
     function confirmRequest(request) {
         addMessage('הבקשה הועברה למרכזי השירות הרלוונטיים. הם יחזרו אליך בהקדם.');
-        displayUserRequests();
+        updateRequestHistory();
+    }
+
+    function updateRequestHistory() {
+        const requestList = document.getElementById('requestList');
+        requestList.innerHTML = '';
+        userRequests.forEach((request, index) => {
+            const requestItem = document.createElement('div');
+            requestItem.textContent = `בקשה ${index + 1}: ${request}`;
+            requestList.appendChild(requestItem);
+        });
     }
 
     function displayUserRequests() {
