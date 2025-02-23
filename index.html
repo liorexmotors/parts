@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>חלפים משומשים לאופנועים</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div id="chat" class="chat-box"></div>
+        <textarea id="message" placeholder="מה אתה מחפש?"></textarea>
+    </div>
+    <div class="banners">
+        <div class="banner">פרסומת 1</div>
+        <div class="banner">פרסומת 2</div>
+        <div class="banner">פרסומת 3</div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <h2>הרשמה מהירה</h2>
+            <input type="text" id="fullName" placeholder="שם מלא">
+            <input type="email" id="email" placeholder="מייל">
+            <input type="tel" id="phone" placeholder="מספר נייד">
+            <select id="vehicle">
+                <option value="">בחר כלי רכב</option>
+                <option value="ימאהה">ימאהה</option>
+                <option value="סוזוקי">סוזוקי</option>
+                <option value="הונדה">הונדה</option>
+                <option value="קימקו">קימקו</option>
+                <option value="אחר">אחר</option>
+            </select>
+            <button id="registerBtn">הרשם</button>
+        </div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>
