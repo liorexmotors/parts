@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isRegistered = false;
 
     function showModal() {
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     }
 
     function hideModal() {
