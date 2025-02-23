@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
     const sendBtn = document.getElementById('sendBtn');
     let isRegistered = false;
+    let userRequests = [];
 
     function showModal() {
         modal.style.display = 'flex';
@@ -33,12 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const fullName = document.getElementById('fullName').value;
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value;
-        const vehicle = document.getElementById('vehicle').value;
+        const vehicleType = document.getElementById('vehicleType').value;
 
-        if (fullName && email && phone && vehicle) {
+        if (fullName && email && phone && vehicleType) {
             isRegistered = true;
             hideModal();
-            addMessage('ברוך הבא! אתה יכול להתחיל לשאול שאלות.');
+            addMessage('ברוך הבא! אתה יכול להתחיל לשאול שאלות. נא לציין יצרן, דגם, שנת ייצור וצבע.');
         }
     });
 
@@ -46,15 +47,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isRegistered && messageBox.value.trim()) {
             const userMessage = messageBox.value.trim();
             addMessage(userMessage, true);
-            addMessage('הפרטים שלך יועברו לבעלי עסקים שיחזרו אליך עם הצעות. לאשר?');
-            
-            const confirmBtn = document.createElement('button');
-            confirmBtn.textContent = 'אישור';
-            confirmBtn.onclick = () => sendRequest(userMessage);
-            chat.appendChild(confirmBtn);
-            
+            userRequests.push(userMessage);
+            addMessage('הפרטים שלך יועברו לבעלי עסקים שיחזרו אליך עם הצעות.');
             messageBox.value = '';
+            displayUserRequests();
         }
+    }
+
+    function displayUserRequests() {
+        chat.innerHTML = ''; // Clear chat
+        addMessage('היסטוריית הבקשות שלך:');
+        userRequests.forEach(request => {
+            addMessage(request, true);
+        });
     }
 
     messageBox.addEventListener('keypress', (e) => {
@@ -65,16 +70,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     sendBtn.addEventListener('click', sendMessage);
-
-    function sendRequest(message) {
-        const fullName = document.getElementById('fullName').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const vehicle = document.getElementById('vehicle').value;
-
-        // כאן יש להוסיף את הלוגיקה לשליחת הנתונים לשרת
-        console.log('שולח בקשה:', { fullName, email, phone, vehicle, message });
-
-        addMessage('הפנייה נשלחה בהצלחה! בעלי עסקים יחזרו אליך בקרוב.');
-    }
 });
