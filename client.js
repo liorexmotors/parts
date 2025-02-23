@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         chat.scrollTop = chat.scrollHeight;
     }
 
-    messageBox.addEventListener('focus', () => {
-        if (!isRegistered) {
+    messageBox.addEventListener('input', () => {
+        if (!isRegistered && messageBox.value.trim().length > 0) {
             showModal();
         }
     });
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (fullName && email && phone && vehicleType) {
             isRegistered = true;
             hideModal();
-            addMessage('ברוך הבא! כדי לקבל את החלק המבוקש נא לציין יצרן, דגם, שנת ייצור וצבע.');
+            addMessage('ברוך הבא! אתה יכול להתחיל לשאול שאלות. נא לציין יצרן, דגם, שנת ייצור וצבע.');
         }
     });
 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function confirmRequest(request) {
-        addMessage( הבקשה הועברה למרכזי השירות הרלוונטיים הם יחזרו אליך בהקדם.');
+        addMessage('הבקשה הועברה למרכזי השירות הרלוונטיים. הם יחזרו אליך בהקדם.');
         displayUserRequests();
     }
 
