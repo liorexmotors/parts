@@ -16,7 +16,7 @@
             <div class="chat-container">
                 <div id="chat" class="chat-box"></div>
                 <div class="message-input">
-                    <textarea id="message" placeholder="הקלד הודעה..."></textarea>
+                    <textarea id="message" placeholder="הקלד הודעה (יצרן, דגם, שנת ייצור וצבע)..."></textarea>
                     <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
                 </div>
             </div>
@@ -35,13 +35,10 @@
                 <input type="text" id="fullName" placeholder="שם מלא" required>
                 <input type="email" id="email" placeholder="מייל" required>
                 <input type="tel" id="phone" placeholder="מספר נייד" required>
-                <select id="vehicle" required>
-                    <option value="">בחר כלי רכב</option>
-                    <option value="ימאהה">ימאהה</option>
-                    <option value="סוזוקי">סוזוקי</option>
-                    <option value="הונדה">הונדה</option>
-                    <option value="קימקו">קימקו</option>
-                    <option value="אחר">אחר</option>
+                <select id="vehicleType" required>
+                    <option value="">בחר סוג כלי רכב</option>
+                    <option value="קטנוע">קטנוע</option>
+                    <option value="אופנוע">אופנוע</option>
                 </select>
                 <button type="submit" id="registerBtn">הרשם</button>
             </form>
