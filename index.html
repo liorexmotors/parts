@@ -2,35 +2,49 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>חלפים משומשים לאופנועים</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חלפים משומשים לאופנועים - צ'אט מקצועי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="chat-container">
-        <div id="chat" class="chat-box"></div>
-        <textarea id="message" placeholder="מה אתה מחפש?"></textarea>
-    </div>
-    <div class="banners">
-        <div class="banner">פרסומת 1</div>
-        <div class="banner">פרסומת 2</div>
-        <div class="banner">פרסומת 3</div>
+    <div class="app-container">
+        <header>
+            <h1>חלפים משומשים לאופנועים</h1>
+        </header>
+        <main>
+            <div class="chat-container">
+                <div id="chat" class="chat-box"></div>
+                <div class="message-input">
+                    <textarea id="message" placeholder="הקלד הודעה..."></textarea>
+                    <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </main>
+        <aside class="banners">
+            <div class="banner">פרסומת 1</div>
+            <div class="banner">פרסומת 2</div>
+            <div class="banner">פרסומת 3</div>
+        </aside>
     </div>
 
     <div id="registerModal" class="modal">
         <div class="modal-content">
             <h2>הרשמה מהירה</h2>
-            <input type="text" id="fullName" placeholder="שם מלא">
-            <input type="email" id="email" placeholder="מייל">
-            <input type="tel" id="phone" placeholder="מספר נייד">
-            <select id="vehicle">
-                <option value="">בחר כלי רכב</option>
-                <option value="ימאהה">ימאהה</option>
-                <option value="סוזוקי">סוזוקי</option>
-                <option value="הונדה">הונדה</option>
-                <option value="קימקו">קימקו</option>
-                <option value="אחר">אחר</option>
-            </select>
-            <button id="registerBtn">הרשם</button>
+            <form id="registerForm">
+                <input type="text" id="fullName" placeholder="שם מלא" required>
+                <input type="email" id="email" placeholder="מייל" required>
+                <input type="tel" id="phone" placeholder="מספר נייד" required>
+                <select id="vehicle" required>
+                    <option value="">בחר כלי רכב</option>
+                    <option value="ימאהה">ימאהה</option>
+                    <option value="סוזוקי">סוזוקי</option>
+                    <option value="הונדה">הונדה</option>
+                    <option value="קימקו">קימקו</option>
+                    <option value="אחר">אחר</option>
+                </select>
+                <button type="submit" id="registerBtn">הרשם</button>
+            </form>
         </div>
     </div>
 
