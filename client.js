@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('sendBtn');
     let isRegistered = false;
     let userRequests = [];
+    let isFirstInput = true;
 
     function showModal() {
         modal.style.display = 'flex';
@@ -24,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     messageBox.addEventListener('input', () => {
-        if (!isRegistered && messageBox.value.trim().length > 0) {
+        if (!isRegistered && isFirstInput && messageBox.value.trim().length > 0) {
             showModal();
+            isFirstInput = false;
         }
     });
 
@@ -80,4 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     sendBtn.addEventListener('click', sendMessage);
+
+    // Initially hide the modal
+    hideModal();
 });
