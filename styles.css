@@ -207,3 +207,18 @@ textarea {
         min-width: 200px;
     }
 }
+.confirm-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+    background-color: var(--secondary-color);
+}
